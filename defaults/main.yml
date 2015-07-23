@@ -31,6 +31,10 @@ php_apc_shm_size: "96M"
 php_apc_stat: "1"
 php_apc_enable_cli: "0"
 
+php_debian_pkg_managed: false
+php_debian_pkg_key: ""
+php_debian_pkg_name: ""
+
 # If this is set to false, none of the following options will have any effect.
 # Any and all changes to /etc/php.ini will be your responsibility.
 php_use_managed_ini: true
