@@ -18,6 +18,17 @@
   notify: restart webserver
   when: php_use_managed_ini
 
+- name: Place PHP configuration file in place for php-fpm.
+  template:
+    src: php.ini.j2
+    dest: "{{ php_conf_path }}/fpm/php.ini"
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart webserver
+  when: php_use_managed_ini and php_enable_php_fpm
+
+
 - name: Place APC configuration file in place.
   template:
     src: apc.ini.j2
