@@ -11,12 +11,15 @@
 - name: Place PHP configuration file in place.
   template:
     src: php.ini.j2
-    dest: "{{ php_conf_path }}/php.ini"
+    dest: "{{ php_conf_path }}/{{ item }}"
     owner: root
     group: root
     mode: 0644
   notify: restart webserver
   when: php_use_managed_ini
+  with_items:
+    - "php.ini"
+    - "cli/php.ini"
 
 - name: Place PHP configuration file in place for php-fpm.
   template:
